@@ -1,0 +1,991 @@
+Composition {
+	CurrentTime = 0,
+	RenderRange = { 0, 250 },
+	GlobalRange = { 0, 250 },
+	CurrentID = 156,
+	PlaybackUpdateMode = 0,
+	Version = "Fusion 8.0 build 18",
+	SavedOutputs = 0,
+	HeldTools = 0,
+	DisabledTools = 0,
+	LockedTools = 0,
+	AudioOffset = 0,
+	Resumable = true,
+	OutputClips = {
+		"E:\\VFX_Fundamentals\\CityScape.mp4"
+	},
+	Tools = {
+		CityScapeImg = Loader {
+			Clips = {
+				Clip {
+					ID = "Clip1",
+					Filename = "E:\\VFX_Fundamentals\\city-cityscape-amarpreet-kaur.jpg",
+					FormatID = "JpegFormat",
+					StartFrame = -1,
+					LengthSetManually = true,
+					TrimIn = 0,
+					TrimOut = 0,
+					ExtendFirst = 0,
+					ExtendLast = 0,
+					Loop = 0,
+					AspectMode = 0,
+					Depth = 0,
+					TimeCode = 0,
+					GlobalStart = 0,
+					GlobalEnd = 0
+				}
+			},
+			NameSet = true,
+			Inputs = {
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1283, 111 } },
+		},
+		ColorCorrector1 = ColorCorrector {
+			Inputs = {
+				Menu = Input { Value = 1, },
+				MasterRGBMid = Input { Value = 0.8, },
+				MasterRGBHigh = Input { Value = 0.9, },
+				ColorRanges = Input {
+					Value = ColorCurves {
+						Curves = {
+							{
+								Points = {
+									{ 0, 1 },
+									{ 0.4, 0.2 },
+									{ 0.6, 0 },
+									{ 1, 0 }
+								}
+							},
+							{
+								Points = {
+									{ 0, 0 },
+									{ 0.4, 0 },
+									{ 0.6, 0.2 },
+									{ 1, 1 }
+								}
+							}
+						}
+					},
+				},
+				HistogramIgnoreTransparent = Input { Value = 1, },
+				Input = Input {
+					SourceOp = "CityScapeImg",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1446, 85 } },
+		},
+		Merge1 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "ColorCorrector1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "BrightnessContrast1",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1623, 87 } },
+		},
+		pEmitter1 = pEmitter {
+			ID = 1,
+			Inputs = {
+				RandomSeed = Input { Value = 200, },
+				Number = Input { Value = 0.1, },
+				Lifespan = Input { Value = 40, },
+				VelocityControls = Input { Value = 1, },
+				Velocity = Input { Value = 0.15, },
+				Angle = Input { Value = 90, },
+				AngleVariance = Input { Value = 10, },
+				AngleZVariance = Input { Value = 10, },
+				RotationControls = Input { Value = 1, },
+				RotationMode = Input { Value = 1, },
+				Set1 = Input { Value = 1, },
+				Style = Input { Value = FuID { "ParticleStyleBrush" }, },
+				Region = Input { Value = FuID { "LineRgn" }, },
+				["ParticleStyle.Blue"] = Input { Value = 0.475982532751092, },
+				["ParticleStyle.ColorVariance"] = Input { Value = 1, },
+				["ParticleStyle.GreenLow"] = Input { Value = -0.1583333, },
+				["ParticleStyle.GreenHigh"] = Input { Value = 0.0416667, },
+				["ParticleStyle.BlueLow"] = Input { Value = -0.3166667, },
+				["ParticleStyle.BlueHigh"] = Input { Value = 0.3916667, },
+				["ParticleStyle.LockColorVariance"] = Input { Value = 0, },
+				["ParticleStyle.ColorOverLife"] = Input {
+					Value = Gradient {
+						Colors = {
+							[0] = { 1, 1, 1, 1 }
+						}
+					},
+				},
+				["ParticleStyle.SizeControls"] = Input { Value = 1, },
+				["ParticleStyle.Size"] = Input { Value = 0.33, },
+				["ParticleStyle.SizeVariance"] = Input { Value = 0.33, },
+				["ParticleStyle.SizeOverLife"] = Input {
+					SourceOp = "pEmitter1SizeoverLife",
+					Source = "Value",
+				},
+				["ParticleStyle.BlurOverLife"] = Input {
+					SourceOp = "pEmitter1BluroverLife2D",
+					Source = "Value",
+				},
+				["ParticleStyleBrush.Brush"] = Input {
+					Value = 43,
+					UserString1 = "smile",
+				},
+				["LineRgn.Start.X"] = Input { Value = -0.519042663891779, },
+				["LineRgn.Start.Y"] = Input { Value = -0.102392801315453, },
+				["LineRgn.End.X"] = Input { Value = 0.510228928199792, },
+				["LineRgn.End.Y"] = Input { Value = -0.0986961096875623, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 610, 114 } },
+		},
+		pEmitter1SizeoverLife = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+					[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 192, Green = 128, Blue = 64 },
+		},
+		pEmitter1BluroverLife2D = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+					[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 192, Green = 128, Blue = 64 },
+		},
+		pSpawn1 = pSpawn {
+			ID = 12,
+			Inputs = {
+				RandomSeed = Input { Value = 7, },
+				Number = Input { Value = 9, },
+				Lifespan = Input { Value = 40, },
+				VelocityControls = Input { Value = 1, },
+				VelocityTransfer = Input { Value = 0.03, },
+				Velocity = Input { Value = 0.002, },
+				Angle = Input { Value = 360, },
+				AngleVariance = Input { Value = 360, },
+				NewSet3 = Input { Value = 1, },
+				Input = Input {
+					SourceOp = "pEmitter1",
+					Source = "Output",
+				},
+				SetMode = Input { Value = FuID { "Affect" }, },
+				Set2 = Input { Value = 0, },
+				Set3 = Input { Value = 0, },
+				Set4 = Input { Value = 0, },
+				Set5 = Input { Value = 0, },
+				Set6 = Input { Value = 0, },
+				Set7 = Input { Value = 0, },
+				Set8 = Input { Value = 0, },
+				Set9 = Input { Value = 0, },
+				Set10 = Input { Value = 0, },
+				Set11 = Input { Value = 0, },
+				Set12 = Input { Value = 0, },
+				Set13 = Input { Value = 0, },
+				Set14 = Input { Value = 0, },
+				Set15 = Input { Value = 0, },
+				Set16 = Input { Value = 0, },
+				Set17 = Input { Value = 0, },
+				Set18 = Input { Value = 0, },
+				Set19 = Input { Value = 0, },
+				Set20 = Input { Value = 0, },
+				Set21 = Input { Value = 0, },
+				Set22 = Input { Value = 0, },
+				Set23 = Input { Value = 0, },
+				Set24 = Input { Value = 0, },
+				Set25 = Input { Value = 0, },
+				Set26 = Input { Value = 0, },
+				Set27 = Input { Value = 0, },
+				Set28 = Input { Value = 0, },
+				Set29 = Input { Value = 0, },
+				Set30 = Input { Value = 0, },
+				Set31 = Input { Value = 0, },
+				Set32 = Input { Value = 0, },
+				["ParticleStyle.ColorOverLife"] = Input {
+					Value = Gradient {
+						Colors = {
+							[0] = { 1, 1, 1, 1 }
+						}
+					},
+				},
+				["ParticleStyle.SizeOverLife"] = Input {
+					SourceOp = "pSpawn1SizeoverLife",
+					Source = "Value",
+				},
+				["ParticleStyle.BlurOverLife"] = Input {
+					SourceOp = "pSpawn1BluroverLife2D",
+					Source = "Value",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 606, 316 } },
+		},
+		pSpawn1SizeoverLife = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+					[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 192, Green = 128, Blue = 64 },
+		},
+		pSpawn1BluroverLife2D = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+					[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 192, Green = 128, Blue = 64 },
+		},
+		pSpawn2 = pSpawn {
+			ID = 23,
+			Inputs = {
+				RandomSeed = Input { Value = 29742, },
+				Number = Input { Value = 200, },
+				NumberVariance = Input { Value = 0.25, },
+				Lifespan = Input { Value = 25, },
+				LifespanVariance = Input { Value = 0.2, },
+				VelocityControls = Input { Value = 1, },
+				VelocityTransfer = Input { Value = 0, },
+				Velocity = Input {
+					SourceOp = "Shake1",
+					Source = "X",
+				},
+				VelocityVariance = Input { Value = 0.05, },
+				AngleVariance = Input { Value = 360, },
+				AngleZVariance = Input { Value = 360, },
+				RotationMode = Input { Value = 1, },
+				NewSet2 = Input { Value = 1, },
+				Input = Input {
+					SourceOp = "pSpawn1",
+					Source = "Output",
+				},
+				Style = Input { Value = FuID { "ParticleStyleLine" }, },
+				StartAge = Input { Value = 0.99, },
+				SetMode = Input { Value = FuID { "Affect" }, },
+				Set2 = Input { Value = 0, },
+				Set3 = Input { Value = 0, },
+				Set4 = Input { Value = 0, },
+				Set5 = Input { Value = 0, },
+				Set6 = Input { Value = 0, },
+				Set7 = Input { Value = 0, },
+				Set8 = Input { Value = 0, },
+				Set9 = Input { Value = 0, },
+				Set10 = Input { Value = 0, },
+				Set11 = Input { Value = 0, },
+				Set12 = Input { Value = 0, },
+				Set13 = Input { Value = 0, },
+				Set14 = Input { Value = 0, },
+				Set15 = Input { Value = 0, },
+				Set16 = Input { Value = 0, },
+				Set17 = Input { Value = 0, },
+				Set18 = Input { Value = 0, },
+				Set19 = Input { Value = 0, },
+				Set20 = Input { Value = 0, },
+				Set21 = Input { Value = 0, },
+				Set22 = Input { Value = 0, },
+				Set23 = Input { Value = 0, },
+				Set24 = Input { Value = 0, },
+				Set25 = Input { Value = 0, },
+				Set26 = Input { Value = 0, },
+				Set27 = Input { Value = 0, },
+				Set28 = Input { Value = 0, },
+				Set29 = Input { Value = 0, },
+				Set30 = Input { Value = 0, },
+				Set31 = Input { Value = 0, },
+				Set32 = Input { Value = 0, },
+				["ParticleStyle.ColorControls"] = Input { Value = 1, },
+				["ParticleStyle.Green"] = Input { Value = 0.9, },
+				["ParticleStyle.Blue"] = Input { Value = 0.6, },
+				["ParticleStyle.ColorOverLifeControls"] = Input { Value = 1, },
+				["ParticleStyle.ColorOverLife"] = Input {
+					SourceOp = "Perturb1",
+					Source = "Value",
+				},
+				["ParticleStyle.SizeControls"] = Input { Value = 1, },
+				["ParticleStyle.Size"] = Input { Value = 1, },
+				["ParticleStyle.SizeVariance"] = Input { Value = 0.333, },
+				["ParticleStyle.SizeToVelocity"] = Input { Value = 0.75, },
+				["ParticleStyle.SizeZScale"] = Input { Value = 0.25, },
+				["ParticleStyle.SizeOverLife"] = Input {
+					SourceOp = "pSpawn2SizeoverLife",
+					Source = "Value",
+				},
+				["ParticleStyle.FadeControls"] = Input { Value = 1, },
+				["ParticleStyle.FadeOut"] = Input { Value = 0.75, },
+				["ParticleStyle.BlurOverLife"] = Input {
+					SourceOp = "pSpawn2BluroverLife2D",
+					Source = "Value",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 763, 315 } },
+		},
+		Shake1 = Shake {
+			CtrlWZoom = false,
+			Inputs = {
+				RandomSeed = Input { Value = 49, },
+				Smoothness = Input { Value = 0.2, },
+				LockXY = Input { Value = 0, },
+				XMinimum = Input { Value = 0.04, },
+				XMaximum = Input { Value = 0.12, },
+				YMinimum = Input { Value = 0.06, },
+				YMaximum = Input { Value = 0.18, },
+			},
+		},
+		Perturb1 = PerturbGradient {
+			CtrlWZoom = false,
+			Inputs = {
+				Value = Input {
+					Value = Gradient {
+						Colors = {
+							[0] = { 0.979523912072182, 1.07110740989447, 1.05906674638391, 0.988894686292042 },
+							[0.104651162790698] = { 0.813423085957766, 1.08129580086097, 0.546052234130455, 0.878667512908578 },
+							[0.308139534883721] = { 0.798098560422659, 0.846336771916671, 0.409596502997767, 0.857557062990963 },
+							[0.534883720930233] = { 0.841936834156513, 0.662573309529427, 0.265980165071931, 0.952356781810522 },
+							[0.75] = { 0.864012904465199, 0.451827649111111, 0.105947244860798, 1.05380468256772 },
+							[1] = { 0.303287925286328, 0.19025998446433, 0.481443108673043, 1.0768229085952 }
+						}
+					},
+				},
+				RandomSeed = Input { Value = 51, },
+				Strength = Input { Value = 2, },
+				Wobble = Input { Value = 1.5, },
+				Speed = Input { Value = 1.75, },
+			},
+		},
+		pSpawn2SizeoverLife = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+					[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 192, Green = 128, Blue = 64 },
+		},
+		pSpawn2BluroverLife2D = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+					[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 192, Green = 128, Blue = 64 },
+		},
+		pFriction1 = pFriction {
+			ID = 57,
+			Inputs = {
+				RandomSeed = Input { Value = 13, },
+				VelocityFriction = Input { Value = 0.1, },
+				Input = Input {
+					SourceOp = "pSpawn2",
+					Source = "Output",
+				},
+				SetMode = Input { Value = FuID { "Affect" }, },
+				Set1 = Input { Value = 0, },
+				Set3 = Input { Value = 0, },
+				Set4 = Input { Value = 0, },
+				Set5 = Input { Value = 0, },
+				Set6 = Input { Value = 0, },
+				Set7 = Input { Value = 0, },
+				Set8 = Input { Value = 0, },
+				Set9 = Input { Value = 0, },
+				Set10 = Input { Value = 0, },
+				Set11 = Input { Value = 0, },
+				Set12 = Input { Value = 0, },
+				Set13 = Input { Value = 0, },
+				Set14 = Input { Value = 0, },
+				Set15 = Input { Value = 0, },
+				Set16 = Input { Value = 0, },
+				Set17 = Input { Value = 0, },
+				Set18 = Input { Value = 0, },
+				Set19 = Input { Value = 0, },
+				Set20 = Input { Value = 0, },
+				Set21 = Input { Value = 0, },
+				Set22 = Input { Value = 0, },
+				Set23 = Input { Value = 0, },
+				Set24 = Input { Value = 0, },
+				Set25 = Input { Value = 0, },
+				Set26 = Input { Value = 0, },
+				Set27 = Input { Value = 0, },
+				Set28 = Input { Value = 0, },
+				Set29 = Input { Value = 0, },
+				Set30 = Input { Value = 0, },
+				Set31 = Input { Value = 0, },
+				Set32 = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 763, 188 } },
+		},
+		pTurbulence1 = pTurbulence {
+			ID = 58,
+			Inputs = {
+				RandomSeed = Input { Value = 29, },
+				XStrength = Input { Value = 0.05, },
+				YStrength = Input { Value = 0.05, },
+				ZStrength = Input { Value = 0.05, },
+				StrengthOverLife = Input { Value = 1, },
+				StrengthOverLifeLUT = Input {
+					SourceOp = "pTurbulence1StrengthoverLifeLUT",
+					Source = "Value",
+				},
+				Input = Input {
+					SourceOp = "pFriction1",
+					Source = "Output",
+				},
+				SetMode = Input { Value = FuID { "Affect" }, },
+				Set1 = Input { Value = 0, },
+				Set3 = Input { Value = 0, },
+				Set4 = Input { Value = 0, },
+				Set5 = Input { Value = 0, },
+				Set6 = Input { Value = 0, },
+				Set7 = Input { Value = 0, },
+				Set8 = Input { Value = 0, },
+				Set9 = Input { Value = 0, },
+				Set10 = Input { Value = 0, },
+				Set11 = Input { Value = 0, },
+				Set12 = Input { Value = 0, },
+				Set13 = Input { Value = 0, },
+				Set14 = Input { Value = 0, },
+				Set15 = Input { Value = 0, },
+				Set16 = Input { Value = 0, },
+				Set17 = Input { Value = 0, },
+				Set18 = Input { Value = 0, },
+				Set19 = Input { Value = 0, },
+				Set20 = Input { Value = 0, },
+				Set21 = Input { Value = 0, },
+				Set22 = Input { Value = 0, },
+				Set23 = Input { Value = 0, },
+				Set24 = Input { Value = 0, },
+				Set25 = Input { Value = 0, },
+				Set26 = Input { Value = 0, },
+				Set27 = Input { Value = 0, },
+				Set28 = Input { Value = 0, },
+				Set29 = Input { Value = 0, },
+				Set30 = Input { Value = 0, },
+				Set31 = Input { Value = 0, },
+				Set32 = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 908, 189 } },
+		},
+		pTurbulence1StrengthoverLifeLUT = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+					[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 192, Green = 128, Blue = 64 },
+			NameSet = true,
+		},
+		pVortex1 = pVortex {
+			ID = 84,
+			Inputs = {
+				RandomSeed = Input { Value = 37, },
+				Strength = Input { Value = 0.5, },
+				["Translate.X"] = Input { Value = -0.011879049676026, },
+				["Translate.Y"] = Input { Value = -0.033413659642373, },
+				Size = Input { Value = 0.6, },
+				AngleX = Input { Value = 20, },
+				AngleY = Input { Value = 30, },
+				Input = Input {
+					SourceOp = "pTurbulence1",
+					Source = "Output",
+				},
+				SetMode = Input { Value = FuID { "Affect" }, },
+				Set1 = Input { Value = 0, },
+				Set3 = Input { Value = 0, },
+				Set4 = Input { Value = 0, },
+				Set5 = Input { Value = 0, },
+				Set6 = Input { Value = 0, },
+				Set7 = Input { Value = 0, },
+				Set8 = Input { Value = 0, },
+				Set9 = Input { Value = 0, },
+				Set10 = Input { Value = 0, },
+				Set11 = Input { Value = 0, },
+				Set12 = Input { Value = 0, },
+				Set13 = Input { Value = 0, },
+				Set14 = Input { Value = 0, },
+				Set15 = Input { Value = 0, },
+				Set16 = Input { Value = 0, },
+				Set17 = Input { Value = 0, },
+				Set18 = Input { Value = 0, },
+				Set19 = Input { Value = 0, },
+				Set20 = Input { Value = 0, },
+				Set21 = Input { Value = 0, },
+				Set22 = Input { Value = 0, },
+				Set23 = Input { Value = 0, },
+				Set24 = Input { Value = 0, },
+				Set25 = Input { Value = 0, },
+				Set26 = Input { Value = 0, },
+				Set27 = Input { Value = 0, },
+				Set28 = Input { Value = 0, },
+				Set29 = Input { Value = 0, },
+				Set30 = Input { Value = 0, },
+				Set31 = Input { Value = 0, },
+				Set32 = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 908, 321 } },
+		},
+		pDirectionalForce1 = pDirectionalForce {
+			ID = 4,
+			Inputs = {
+				["BezierRgn.Polyline"] = Input {
+					Value = Polyline {
+					},
+				},
+				RandomSeed = Input { Value = 101, },
+				Strength = Input { Value = 0.03, },
+				Input = Input {
+					SourceOp = "pVortex1",
+					Source = "Output",
+				},
+				SetMode = Input { Value = FuID { "Affect" }, },
+				Set3 = Input { Value = 0, },
+				Set4 = Input { Value = 0, },
+				Set5 = Input { Value = 0, },
+				Set6 = Input { Value = 0, },
+				Set7 = Input { Value = 0, },
+				Set8 = Input { Value = 0, },
+				Set9 = Input { Value = 0, },
+				Set10 = Input { Value = 0, },
+				Set11 = Input { Value = 0, },
+				Set12 = Input { Value = 0, },
+				Set13 = Input { Value = 0, },
+				Set14 = Input { Value = 0, },
+				Set15 = Input { Value = 0, },
+				Set16 = Input { Value = 0, },
+				Set17 = Input { Value = 0, },
+				Set18 = Input { Value = 0, },
+				Set19 = Input { Value = 0, },
+				Set20 = Input { Value = 0, },
+				Set21 = Input { Value = 0, },
+				Set22 = Input { Value = 0, },
+				Set23 = Input { Value = 0, },
+				Set24 = Input { Value = 0, },
+				Set25 = Input { Value = 0, },
+				Set26 = Input { Value = 0, },
+				Set27 = Input { Value = 0, },
+				Set28 = Input { Value = 0, },
+				Set29 = Input { Value = 0, },
+				Set30 = Input { Value = 0, },
+				Set31 = Input { Value = 0, },
+				Set32 = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1047, 322 } },
+		},
+		Rectangle2 = RectangleMask {
+			Inputs = {
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input { Value = { 0.495934959349594, 0.217479674796748 }, },
+				Width = Input { Value = 0.993224932249322, },
+				Height = Input { Value = 0.410558963722293, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 835, 96 } },
+		},
+		ChromaKeyer1 = ChromaKeyer {
+			CtrlWZoom = false,
+			Inputs = {
+				ColorRange = Input { Value = 1, },
+				RedLow = Input { Value = 0.390981918059052, },
+				RedHigh = Input { Value = 0.502922102693217, },
+				GreenLow = Input { Value = 0.461020828564889, },
+				GreenHigh = Input { Value = 0.523857480735485, },
+				BlueLow = Input { Value = 0.496269169146258, },
+				BlueHigh = Input { Value = 0.690547035934997, },
+				LuminanceHigh = Input { Value = 0.909025711451896, },
+				FringeSize = Input { Value = 0, },
+				InvertMatte = Input { Value = 1, },
+				Input = Input {
+					SourceOp = "CityScapeImg",
+					Source = "Output",
+				},
+				GarbageMatte = Input {
+					SourceOp = "Rectangle2",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1045, 96 } },
+		},
+		pRender1 = pRender {
+			Inputs = {
+				["_MotionBlurWarning"] = Input { Disabled = true, },
+				GlobalOut = Input { Value = 250, },
+				Width = Input { Value = 2400, },
+				Height = Input { Value = 1600, },
+				["Gamut.ColorSpaceNest"] = Input { Value = 1, },
+				["Gamut.GammaSpaceNest"] = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				OutputMode = Input {
+					Value = FuID { "TwoD" },
+					Disabled = true,
+				},
+				IntegrationMethod = Input { Value = FuID { "RK4" }, },
+				["MaterialID.Nest"] = Input { Value = 1, },
+				["MaterialID.MaterialID"] = Input { Value = 1, },
+				["ObjectID.Nest"] = Input { Value = 1, },
+				["ObjectID.ObjectID"] = Input { Value = 1, },
+				Input = Input {
+					SourceOp = "pDirectionalForce1",
+					Source = "Output",
+				},
+				EffectMask = Input {
+					SourceOp = "ChromaKeyer1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1046, 209 } },
+		},
+		Glow1 = Glow {
+			Inputs = {
+				Blend = Input { Value = 0.67, },
+				Alpha = Input { Value = 0, },
+				XGlowSize = Input { Value = 1.1, },
+				Glow = Input { Value = 0.9, },
+				ApplyMode = Input { Value = 2, },
+				High = Input { Value = 0.75, },
+				ColorScale = Input { Value = 1, },
+				Input = Input {
+					SourceOp = "pRender1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1182, 210 } },
+		},
+		BrightnessContrast1 = BrightnessContrast {
+			Inputs = {
+				Saturation = Input { Value = 0.5, },
+				Input = Input {
+					SourceOp = "Glow1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1183, 320 } },
+		},
+		Transform1 = Transform {
+			Inputs = {
+				FlipVert = Input { Value = 1, },
+				ReferenceSize = Input { Value = 1, },
+				Width = Input { Value = 2400, },
+				Height = Input { Value = 1600, },
+				Input = Input {
+					SourceOp = "BrightnessContrast1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1505, 321 } },
+		},
+		Blur1 = Blur {
+			Inputs = {
+				Blend = Input { Value = 0.5, },
+				LockXY = Input { Value = 0, },
+				Input = Input {
+					SourceOp = "Transform1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1658, 321 } },
+		},
+		Rectangle1 = RectangleMask {
+			Inputs = {
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input { Value = { 0.499067139001349, 0.168082415819097 }, },
+				Width = Input { Value = 0.990536848688325, },
+				Height = Input { Value = 0.357723577235772, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1827, 116 } },
+		},
+		Merge2 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "Merge1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "Blur1",
+					Source = "Output",
+				},
+				Center = Input { Value = { 0.5, 0.35 }, },
+				PerformDepthMerge = Input { Value = 0, },
+				ReferenceSize = Input { Value = 1, },
+				Width = Input { Value = 2400, },
+				Height = Input { Value = 1600, },
+				EffectMask = Input {
+					SourceOp = "Rectangle1",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1828, 272 } },
+		},
+		CityScapeMP4 = Saver {
+			NameSet = true,
+			Inputs = {
+				ProcessWhenBlendIs00 = Input { Value = 0, },
+				Clip = Input {
+					Value = Clip {
+						Filename = "E:\\VFX_Fundamentals\\CityScape.mp4",
+						FormatID = "QuickTimeMovies",
+						Length = 0,
+						Saving = true,
+						TrimIn = 0,
+						ExtendFirst = 0,
+						ExtendLast = 0,
+						Loop = 1,
+						AspectMode = 0,
+						Depth = 0,
+						TimeCode = 0,
+						GlobalStart = -2000000000,
+						GlobalEnd = 0
+					},
+				},
+				OutputFormat = Input { Value = FuID { "QuickTimeMovies" }, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Input = Input {
+					SourceOp = "Merge2",
+					Source = "Output",
+				},
+				["QuickTimeMovies.Compression"] = Input { Value = FuID { "H.264_avc1" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1969, 273 } },
+		}
+	},
+	Views = {
+		{
+			FrameTypeID = "ChildFrame",
+			Mode = 3,
+			LayoutPreset = 0,
+			Left = 0,
+			Top = 27,
+			Width = 1920,
+			Height = 952,
+			Views = ordered() {
+				Main = MultiView {
+					Active = "Flow",
+					ViewList = ordered() {
+						Flow = "FlowView",
+						Console = "ConsoleView",
+						Timeline = "TimelineView",
+						Spline = "SplineEditorView",
+						Info = "InfoView",
+						Chat = "ChatView"
+					},
+					Flow = FlowView {
+						Flags = {
+							AutoHideNavigator = true,
+							ForceAll = true,
+							ForceSource = true,
+							ForceMask = true,
+							ForceActive = true,
+							AutoSnap = true,
+							RemoveRouters = true
+						},
+						NavigatorSize = { 200, 140 },
+						Direction = "Horizontal",
+						PipeStyle = "Direct",
+						Scale = 1,
+						Offset = { -552, -60 }
+					},
+					Timeline = TimelineView {
+						TreeControlState = {
+						},
+						DisplayMode = "All Tools",
+						ShowCurrentTimeTools = false,
+						Filter = "Show All",
+						ShowSelectedTools = false,
+						ShowAnimatedToolsOnly = false,
+						ShowEditBoxes = false,
+						KeyFrameView = {
+							Position = { Left = 150, Bottom = 327 },
+							ScaleX = 0.227272727272727,
+							OffsetX = -25,
+							OffsetY = 4,
+							AutoScaling = "scroll",
+							AutoSnapTo = "frame",
+							AutoSnapToGuidelines = false,
+							GuidelinesGrabEnabled = true,
+							GuidelinesSnapTo = "none"
+						},
+						Spreadsheet = { LeftPos = 150, Visible = false }
+					},
+					Spline = SplineEditorView {
+						LeftPos = 256,
+						ScaleX = 0.2,
+						ScaleY = 0.00338983050847458,
+						OffsetX = -3.8,
+						OffsetY = 0,
+						AutoScaling = "scroll",
+						AutoSnapTo = "frame",
+						AutoSnapToGuidelines = false,
+						GuidelinesSnapTo = "frame",
+						ShowKeyMarkers = false,
+						IndependentHandles = false,
+						ShowNonSplineModifiers = false,
+						GuidelinesGrabEnabled = true,
+						ShowOneToolOnly = false,
+						ShowSelectedTools = false,
+						ShowAllInputs = false,
+						Filter = "Show All"
+					},
+				},
+				Controls = MultiView {
+					Active = "Tools",
+					ViewList = ordered() {
+						Tools = "ControlView",
+						Modifiers = "ModifierView"
+					},
+				},
+				Left = "PreviewContainer",
+				Right = "PreviewContainer",
+				Transport = "TransportView",
+				Time = "TimeView"
+			},
+			Layout = {
+				Columns = 2,
+				RatioX = 1,
+				RatioY = 1,
+				{
+					Rows = 3,
+					RatioX = 0.77597911227154,
+					RatioY = 95,
+					{
+						Columns = 2,
+						RatioX = 1,
+						RatioY = 0.57521186440678,
+						{ ID = "Left", RatioX = 0.498988536749831, RatioY = 107.333850931677, Pop = true },
+						{ ID = "Right", RatioX = 0.501011463250169, Pop = true },
+						Pop = true
+					},
+					{ ID = "Main", RatioY = 0.363347457627119, Pop = true },
+					{ ID = "Time", SnapY = 56, Flat = true }
+				},
+				{
+					Rows = 2,
+					PixelX = 427,
+					{ ID = "Controls", RatioX = 1, RatioY = 1 },
+					{ ID = "Transport", FixedY = -2 }
+				}
+			}
+		}
+	},
+	Prefs = {
+		Comp = {
+			Views = {
+				Right = {
+					Viewer = {
+						ScaleMode = 1,
+					},
+					View3D = {
+						CamFront = {
+							Rotation = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CamLeft = {
+							Rotation = {
+								Y = 90,
+								X = 0,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CamRight = {
+							Rotation = {
+								Y = -90,
+								X = 0,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CamPersp = {
+							Rotation = {
+								Y = 0,
+								X = 30,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CamTop = {
+							Rotation = {
+								Y = 0,
+								X = 90,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CameraName = "Perspective"
+					},
+				},
+				Left = {
+					Viewer = {
+						ScaleMode = 1,
+						CheckerUnderlay = true,
+					},
+				},
+				View1 = {
+				},
+			},
+			FrameFormat = {
+				GuideRatio = 1.77777777777778,
+			},
+			LastFile = "E:\\VFX_Fundamentals\\textur2.png",
+			Unsorted = {
+				GlobalEnd = 250,
+				RenderSettings = {
+					Configs = {
+					}
+				}
+			},
+			Paths = {
+			},
+			FlowView = {
+				ForceActive = true,
+				ForceSource = true,
+				ForceMask = true,
+				ForceAll = true,
+			},
+			QuickTime = {
+			}
+		}
+	}
+}
+
+ 

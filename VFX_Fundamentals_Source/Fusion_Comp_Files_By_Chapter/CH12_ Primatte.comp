@@ -1,0 +1,328 @@
+Composition {
+	CurrentTime = 0,
+	RenderRange = { 0, 1000 },
+	GlobalRange = { 0, 1000 },
+	CurrentID = 5,
+	PlaybackUpdateMode = 0,
+	Version = "Fusion 8.0 build 18",
+	SavedOutputs = 2,
+	HeldTools = 0,
+	DisabledTools = 0,
+	LockedTools = 0,
+	AudioOffset = 0,
+	AutoRenderRange = true,
+	Resumable = true,
+	OutputClips = {
+	},
+	Tools = {
+		Loader1 = Loader {
+			Clips = {
+				Clip {
+					ID = "Clip1",
+					Filename = "E:\\VFX_Fundamentals\\Niki.png",
+					FormatID = "PNGFormat",
+					StartFrame = -1,
+					LengthSetManually = true,
+					TrimIn = 0,
+					TrimOut = 0,
+					ExtendFirst = 0,
+					ExtendLast = 0,
+					Loop = 0,
+					AspectMode = 0,
+					Depth = 0,
+					TimeCode = 0,
+					GlobalStart = 0,
+					GlobalEnd = 0
+				}
+			},
+			Inputs = {
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 58, 82 } },
+		},
+		Loader2 = Loader {
+			Clips = {
+				Clip {
+					ID = "Clip1",
+					Filename = "C:\\Clients\\Apress\\Mini-Book\\VFX\\Wallace\\alex01.tif",
+					FormatID = "TiffFormat",
+					StartFrame = 1,
+					Length = 20,
+					LengthSetManually = true,
+					TrimIn = 0,
+					TrimOut = 19,
+					ExtendFirst = 0,
+					ExtendLast = 0,
+					Loop = 1,
+					AspectMode = 0,
+					Depth = 0,
+					TimeCode = 0,
+					GlobalStart = 0,
+					GlobalEnd = 19
+				}
+			},
+			Inputs = {
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 592, -49 } },
+		},
+		Primatte1 = Photron.Primatte4 {
+			CtrlWZoom = false,
+			Inputs = {
+				FineTuneRed = Input { Disabled = true, },
+				FineTuneGreen = Input { Disabled = true, },
+				FineTuneBlue = Input { Disabled = true, },
+				PrimatteData = Input {
+					Value = Primatte4Data {
+						Value = HexData [[
+							78 DA 63 78 11 EF C6 B0 E2 B8 1B C3 B4 28 77 01
+							06 46 06 10 60 05 11 47 6C 0D 41 D4 07 34 FA C2
+							3B 36 66 10 7D 60 07 B3 18 03 12 40 17 5F C7 1D
+							95 C0 C8 80 09 B0 89 81 C0 0A 26 71 14 BE 02 94
+							3E C0 23 CE 80 1F 44 81 49 09 34 51 16 34 3E CC
+							3C 26 28 7D 25 7A E5 E6 BF F5 20 16 AA F9 E8 E6
+							24 1C 83 F8 FB 18 DB F9 18 B0 3B 79 8F 24 82 FC
+							50 F3 F0 0A D8 7F 17 66 14 F2 81 C4 1F BC 3A 07
+							96 D7 60 5D 0A E6 07 D4 B7 89 63 E3 27 BC B1 00
+							F3 F9 05 21 E6 81 00 C8 1D 3F 1E 2C 06 3B ED 02
+							94 86 B9 E3 DF 7F 08 40 37 07 A6 0F A6 AE 03 2A
+							7F A2 71 0F D8 7D A7 2E DF 07 D3 1B 3E 72 82 D5
+							9F 80 CA 33 4C 0F 13 45 36 C7 E1 38 C4 7F 8E 96
+							C9 58 E3 8B 21 41 DE 75 14 03 31 C3 7F 77 74 5C
+							EC E0 E8 AE 7F CE 03 45 4C 82 FF B9 1B BA BA AC
+							ED 13 51 F8 F1 A7 B6 83 E9 89 AE 16 18 66 4E 5F
+							34 D3 5D 4C F2 B3 5B 81 6B B1 3B 36 3B 61 38 41
+							90 19 AB B8 E5 FE 7F 6E B7 39 57 B9 67 CE 62 C2
+							A9 77 8D F6 1E 38 7B 4E F7 75 30 3D D3 F6 9B DB
+							B1 E3 53 F0 DA 89 0B 63 0B 87 EF 1D 9C EE 94 86
+							C3 4C 1E 41 77 42 E1 90 F1 D5 01 AB B8 BB 17 83
+							3B 28 1C 3C D9 44 49 0A 07 2E 0F 55 77 E2 C2 01
+							04 1A EC 21 18 19 C0 C4 D0 31 69 EA FF E3 00 F6
+							4E FC 0C 20 8C 2E 1E 3B 73 B3 32 08 03 00 D1 AB
+							6E 4E ]],
+						EdgeData = HexData [[
+							78 DA 63 78 11 EF C6 B0 E2 B8 1B C3 B4 28 77 06
+							28 60 05 11 3C E2 60 F6 E4 84 A5 09 8C 0C 08 D0
+							B0 4D 04 4C 3B D4 A6 4B 81 E8 53 97 EF 27 82 E4
+							0D B2 33 98 40 FC 7F FF 21 C0 A0 10 22 AF 70 C6
+							D6 10 44 BB 14 41 F8 9A 36 33 D6 FF AD 07 AA 87
+							CA C3 40 04 94 FF A0 00 55 7C EA 86 A7 10 F3 61
+							EA 05 54 E0 72 20 71 76 28 1B 26 CF C2 C0 94 00
+							A2 3D 90 D4 20 BB 9F 64 70 1D E2 7E 98 BB B2 A7
+							3C 4B 64 C4 23 8F EE AF B3 D3 8B 13 90 DD F0 93
+							7B E5 66 90 FF 61 80 85 59 1C C5 BA 09 50 85 07
+							A0 E1 0F 53 9F 30 3F 95 05 D5 61 51 60 B2 03 AA
+							9E 0F 2A CA 84 E6 7C 19 16 88 39 05 50 FD 02 FC
+							D8 CD 67 10 CD 17 C5 EA FF 04 79 D7 51 0C C4 0C
+							FF DD D1 71 B1 83 A3 BB FE 39 0F 14 31 09 FE E7
+							6E E8 EA B2 B6 4F 44 E1 C7 9F DA 0E A6 27 BA 5A
+							60 98 39 7D D1 4C 77 31 C9 CF 6E 05 AE C5 EE D8
+							EC 84 E1 04 41 66 AC E2 96 FB FF B9 DD E6 5C E5
+							9E 39 8B 09 A7 DE 35 DA 7B E0 EC 39 DD D7 C1 F4
+							4C DB 6F 6E C7 8E 4F C1 6B 27 2E 8C 2D 1C BE 77
+							70 BA 53 1A 0E 33 79 04 DD 09 85 43 C6 57 07 AC
+							E2 EE 5E 0C EE A0 70 F0 64 13 25 29 1C B8 3C 54
+							DD 89 0B 07 70 69 68 0F C1 C8 00 26 86 8E 49 53
+							FF 1F 07 B0 77 E2 67 00 61 74 71 00 BD B4 60 F7
+							]],
+						BodyData = HexData [[
+							78 DA 63 78 11 EF C6 B0 E2 B8 1B C3 B4 28 77 06
+							28 60 65 C0 04 8C 50 3A E1 EB 5B 37 34 29 7B 06
+							12 C0 59 2E 86 E3 A4 E9 6F 40 91 77 F8 6F EF 81
+							C6 07 CB 0B 30 5C 93 02 1B 76 B2 D1 1D 59 FE 3F
+							33 84 BE E7 A5 95 CC 48 84 FB B0 F8 0F 0C 7E 72
+							AF DC FC B7 9E 81 A1 E0 7A 90 38 B2 38 93 21 8C
+							15 07 B6 BF BA B5 C2 0E 44 07 5F 64 68 42 51 07
+							46 40 DF 40 F5 07 9A 33 A4 81 E8 0D B0 F0 65 41
+							0D 76 90 3C C8 BE 0D 5F 4F 89 63 8B 07 0C FB 15
+							32 C0 F6 DF BC 64 0B 16 B9 FF 7F 05 D8 BD 0C 0C
+							51 10 69 83 6C 29 6C FE 52 F0 BA 0E 16 BF 91 59
+							B5 18 A4 5E D6 05 3D 40 E4 5D 47 31 10 33 FC 77
+							47 C7 C5 0E 8E EE 17 05 57 BA 21 8B 4D 0B 37 71
+							43 57 77 C0 E9 3E 8A D8 CF AF 2E 60 7A A2 AB 05
+							86 99 D3 17 CD 74 3F 98 1E E1 56 E0 5A EC 8E CD
+							4E 18 66 72 9C E3 86 4D BC 95 31 C3 ED EF 03 16
+							F7 B5 92 29 6E B8 F4 AE D1 DE 03 67 6F B1 EB 76
+							3F 94 B5 DE 7D C9 9F 00 B7 63 C7 A7 E0 B5 13 17
+							06 85 83 FE 39 0F 14 B1 EF 1D 9C 18 EA B2 B6 4F
+							44 E1 C7 9F DA 8E 37 1C 66 F2 08 BA 13 0A 87 8C
+							AF 0E 58 C5 DD BD 18 DC 6F 73 AE 72 F7 64 13 75
+							27 26 1C E6 74 5F 07 D3 5C 1E AA EE C4 85 03 AC
+							6C 6A B0 C7 2C AF B0 61 D2 D4 FF C7 01 EC 9D F8
+							19 40 18 5D 1C 00 2E DF 53 E9 ]],
+						RtData = HexData [[
+							78 DA 3B 7B C6 C7 56 77 D3 5D 7B 10 3E 8B C1 8E
+							B5 07 61 4A D8 00 7B D0 2A C1 ]],
+						EdgeRtData = HexData [[
+							78 DA 3B 7B C6 C7 56 77 D3 5D 7B 10 3E 8B C1 8E
+							B5 07 61 4A D8 00 7B D0 2A C1 ]],
+						BodyRtData = HexData [[
+							78 DA 3B 7B C6 C7 56 77 D3 5D 7B 10 3E 8B C1 8E
+							B5 07 61 4A D8 00 7B D0 2A C1 ]],
+						Version = 1
+					},
+				},
+				Foreground = Input {
+					SourceOp = "Loader2",
+					Source = "Output",
+				},
+				Background = Input {
+					SourceOp = "Loader1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 592, 75 } },
+			Version = 1
+		}
+	},
+	Views = {
+		{
+			FrameTypeID = "ChildFrame",
+			Mode = 3,
+			LayoutPreset = 0,
+			Left = 0,
+			Top = 27,
+			Width = 1920,
+			Height = 952,
+			Views = ordered() {
+				Main = MultiView {
+					Active = "Flow",
+					ViewList = ordered() {
+						Flow = "FlowView",
+						Console = "ConsoleView",
+						Timeline = "TimelineView",
+						Spline = "SplineEditorView",
+						Info = "InfoView",
+						Chat = "ChatView"
+					},
+					Flow = FlowView {
+						Flags = {
+							AutoHideNavigator = true,
+							ForceAll = true,
+							ForceSource = true,
+							ForceMask = true,
+							ForceActive = true,
+							AutoSnap = true,
+							RemoveRouters = true
+						},
+						NavigatorSize = { 200, 140 },
+						Direction = "Horizontal",
+						PipeStyle = "Direct",
+						Scale = 1,
+						Offset = { 112, 79 }
+					},
+					Timeline = TimelineView {
+						TreeControlState = {
+						},
+						DisplayMode = "All Tools",
+						ShowCurrentTimeTools = false,
+						Filter = "Show All",
+						ShowSelectedTools = false,
+						ShowAnimatedToolsOnly = false,
+						ShowEditBoxes = false,
+						KeyFrameView = {
+							Position = { Left = 150, Bottom = 350 },
+							ScaleX = 2.14424951267057,
+							OffsetX = -49.317738791423,
+							OffsetY = 0,
+							AutoScaling = "scroll",
+							AutoSnapTo = "frame",
+							AutoSnapToGuidelines = false,
+							GuidelinesGrabEnabled = true,
+							GuidelinesSnapTo = "none"
+						},
+						Spreadsheet = { LeftPos = 150, Visible = false }
+					},
+					Spline = SplineEditorView {
+						LeftPos = 238,
+						ScaleX = 0.2,
+						ScaleY = 0.00338983050847458,
+						OffsetX = -3.8,
+						OffsetY = 0,
+						AutoScaling = "scroll",
+						AutoSnapTo = "frame",
+						AutoSnapToGuidelines = false,
+						GuidelinesSnapTo = "frame",
+						ShowKeyMarkers = false,
+						IndependentHandles = false,
+						ShowNonSplineModifiers = false,
+						GuidelinesGrabEnabled = true,
+						ShowOneToolOnly = false,
+						ShowSelectedTools = false,
+						ShowAllInputs = false,
+						Filter = "Show All"
+					},
+				},
+				Controls = MultiView {
+					Active = "Tools",
+					ViewList = ordered() {
+						Tools = "ControlView",
+						Modifiers = "ModifierView"
+					},
+				},
+				Left = "PreviewContainer",
+				Right = "PreviewContainer",
+				Transport = "TransportView",
+				Time = "TimeView"
+			},
+			Layout = {
+				Columns = 2,
+				RatioX = 1,
+				RatioY = 1,
+				{
+					Rows = 3,
+					RatioX = 0.497637795275591,
+					RatioY = 100,
+					{
+						Columns = 2,
+						RatioX = 1,
+						RatioY = 0.61378505566821,
+						{ ID = "Left", RatioX = 0.517291103850913, RatioY = 100, Pop = true },
+						{ ID = "Right", RatioX = 0.482708896149087, Pop = true },
+						Pop = true
+					},
+					{ ID = "Main", RatioY = 0.263333588399587, Pop = true },
+					{ ID = "Time", SnapY = 56, Flat = true }
+				},
+				{
+					Rows = 2,
+					PixelX = 317,
+					{ ID = "Controls", RatioX = 1, RatioY = 1 },
+					{ ID = "Transport", FixedY = -2 }
+				}
+			}
+		}
+	},
+	Prefs = {
+		Comp = {
+			Paths = {
+			},
+			FlowView = {
+				ForceSource = true,
+				ForceActive = true,
+				ForceMask = true,
+				ForceAll = true,
+			},
+			LastFile = "E:\\VFX_Fundamentals\\SampleVideo_1280x720_2mb.mp4",
+			FrameFormat = {
+				GuideRatio = 1.77777777777778,
+			},
+			Views = {
+				View1 = {
+				},
+				Right = {
+					Viewer = {
+					},
+				},
+				Left = {
+					Viewer = {
+					},
+				},
+			},
+			QuickTime = {
+			},
+		}
+	}
+}
+
+ 

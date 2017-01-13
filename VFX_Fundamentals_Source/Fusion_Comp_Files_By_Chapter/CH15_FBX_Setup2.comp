@@ -1,0 +1,890 @@
+Composition {
+	CurrentTime = 0,
+	RenderRange = { 0, 1000 },
+	GlobalRange = { 0, 1000 },
+	CurrentID = 17,
+	PlaybackUpdateMode = 0,
+	Version = "Fusion 8.0 build 18",
+	SavedOutputs = 2,
+	HeldTools = 0,
+	DisabledTools = 0,
+	LockedTools = 0,
+	AudioOffset = 0,
+	AutoRenderRange = true,
+	Resumable = true,
+	OutputClips = {
+	},
+	Tools = {
+		FBXMesh3D1 = SurfaceFBXMesh {
+			Inputs = {
+				ImportFile = Input { Value = "C:\\Users\\Default.Default-PC\\Documents\\3dsMax\\export\\Gargoyle.FBX", },
+				TransformToWorld = Input { Value = 0, },
+				["Visibility.Nest"] = Input { Value = 1, },
+				["ObjectID.ObjectID"] = Input { Value = 1, },
+				MaterialInput = Input {
+					SourceOp = "reflect_base_2_2_2",
+					Source = "MaterialOutput",
+				},
+				["MtlStdInputs.MaterialID"] = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 16, -1 } },
+		},
+		Camera3D1 = Camera3D {
+			Inputs = {
+				["Transform3DOp.Translate.X"] = Input { Value = 274.141482025911, },
+				["Transform3DOp.Translate.Y"] = Input { Value = -115.049361834044, },
+				["Transform3DOp.Translate.Z"] = Input { Value = 343.138492703615, },
+				AoV = Input { Value = 43.2071314603204, },
+				FLength = Input { Value = 15, },
+				PlaneOfFocus = Input { Value = 3.89285714285714, },
+				["Stereo.Mode"] = Input { Value = FuID { "Mono" }, },
+				FilmGate = Input { Value = FuID { "BMD_URSA_4K_16x9" }, },
+				ApertureW = Input { Value = 0.831496062992126, },
+				ApertureH = Input { Value = 0.467716535433071, },
+				["SurfacePlaneInputs.ObjectID.ObjectID"] = Input { Value = 2, },
+				["MtlStdInputs.MaterialID"] = Input { Value = 2, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1485, 13 } },
+		},
+		SpotLight1 = LightSpot {
+			Inputs = {
+				["Transform3DOp.Translate.X"] = Input { Value = 276, },
+				["Transform3DOp.Translate.Y"] = Input { Value = -204.666774617841, },
+				["Transform3DOp.Translate.Z"] = Input { Value = 229.046344039769, },
+				["Transform3DOp.Rotate.X"] = Input { Value = 56, },
+				Intensity = Input { Value = 0.8, },
+				ConeAngle = Input { Value = 90, },
+				PenumbraAngle = Input { Value = 10, },
+				["ShadowLightInputs3D.Nest"] = Input { Value = 1, },
+				["ShadowLightInputs3D.ShadowDensity"] = Input { Value = 0.333, },
+				["ShadowLightInputs3D.ShadowMapSize"] = Input { Value = 2048, },
+				["ShadowLightInputs3D.SoftnessType"] = Input { Value = FuID { "Variable" }, },
+				["ShadowLightInputs3D.Spread"] = Input { Value = 3, },
+				["ShadowLightInputs3D.MinSoftness"] = Input { Value = 2, },
+				["ShadowLightInputs3D.FilterSize"] = Input { Value = 0.03, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1001, 50 } },
+		},
+		Merge3D1 = Merge3D {
+			Inputs = {
+				SceneInput1 = Input {
+					SourceOp = "FBXMesh3D1",
+					Source = "Output",
+				},
+				SceneInput2 = Input {
+					SourceOp = "Camera3D1",
+					Source = "Output",
+				},
+				SceneInput3 = Input {
+					SourceOp = "SpotLight1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1147, 1 } },
+		},
+		Renderer3D1 = Renderer3D {
+			Inputs = {
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				SceneInput = Input {
+					SourceOp = "Merge3D1",
+					Source = "Output",
+				},
+				["RendererSoftware.Channels.Nest"] = Input { Value = 1, },
+				["RendererSoftware.LightingEnabled"] = Input { Value = 1, },
+				["RendererSoftware.ShadowsEnabled"] = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1374, 51 } },
+		},
+		Marble = GroupOperator {
+			CtrlWZoom = false,
+			Inputs = ordered() {
+				Input1 = InstanceInput {
+					SourceOp = "Ward3_3_1_1",
+					Source = "Diffuse.Color.Red",
+					Name = "Diffuse Color",
+					ControlGroup = 1,
+					Default = 1,
+				},
+				Input2 = InstanceInput {
+					SourceOp = "Ward3_3_1_1",
+					Source = "Diffuse.Color.Green",
+					ControlGroup = 1,
+					Default = 1,
+				},
+				Input3 = InstanceInput {
+					SourceOp = "Ward3_3_1_1",
+					Source = "Diffuse.Color.Blue",
+					ControlGroup = 1,
+					Default = 1,
+				},
+				Input4 = InstanceInput {
+					SourceOp = "Ward3_3_1_1",
+					Source = "Diffuse.Color.Alpha",
+					Default = 1,
+				},
+				Input5 = InstanceInput {
+					SourceOp = "Ward3_3_1_1",
+					Source = "Diffuse.Opacity",
+					Default = 1,
+				},
+				Input6 = InstanceInput {
+					SourceOp = "Ward3_3_1_1",
+					Source = "Specular.Color.Red",
+					Name = "Specular Color",
+					ControlGroup = 4,
+					Default = 1,
+				},
+				Input7 = InstanceInput {
+					SourceOp = "Ward3_3_1_1",
+					Source = "Specular.Color.Green",
+					ControlGroup = 4,
+					Default = 1,
+				},
+				Input8 = InstanceInput {
+					SourceOp = "Ward3_3_1_1",
+					Source = "Specular.Color.Blue",
+					ControlGroup = 4,
+					Default = 1,
+				},
+				Input9 = InstanceInput {
+					SourceOp = "Ward3_3_1_1",
+					Source = "Specular.Intensity",
+					Default = 0.4,
+				},
+				Input10 = InstanceInput {
+					SourceOp = "Ward3_3_1_1",
+					Source = "Specular.SpreadU",
+					Default = 0.2,
+				},
+				Input11 = InstanceInput {
+					SourceOp = "Ward3_3_1_1",
+					Source = "Specular.SpreadV",
+					Default = 0.2,
+				},
+				Input12 = InstanceInput {
+					SourceOp = "reflect_base_2_2_2",
+					Source = "Reflection.GlancingStrength",
+					Default = 0.332,
+				},
+				Input13 = InstanceInput {
+					SourceOp = "reflect_base_2_2_2",
+					Source = "Reflection.FaceOnStrength",
+					Default = 0.148,
+				},
+				Input14 = InstanceInput {
+					SourceOp = "reflect_base_2_2_2",
+					Source = "Reflection.Falloff",
+					Default = 2,
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "reflect_base_2_2_2",
+					Source = "MaterialOutput",
+				}
+			},
+			ViewInfo = GroupInfo {
+				Pos = { 593, 78 },
+				Flags = {
+					Expanded = true,
+					AllowPan = false,
+					ForceAll = true,
+					ForceSource = true,
+					ForceMask = true,
+					ForceActive = true,
+					AutoSnap = true,
+					RemoveRouters = true
+				},
+				Size = { 456, 193.3 },
+				Direction = "Horizontal",
+				PipeStyle = "Direct",
+				Scale = 1,
+				Offset = { 0, 0 }
+			},
+			Tools = ordered() {
+				FastNoise2_4_2_3 = FastNoise {
+					CtrlWShown = false,
+					Inputs = {
+						Width = Input { Value = 1024, },
+						Height = Input { Value = 512, },
+						Contrast = Input { Value = 0.5789474, },
+						XScale = Input { Value = 7.120419, },
+						Type = Input { Value = 1, },
+						GradientType = Input { Value = 1, },
+						Start = Input { Value = { 0.5, 0 }, },
+						End = Input { Value = { 0.5, 1 }, },
+						Gradient = Input {
+							Value = Gradient {
+								Colors = {
+									[0] = { 0.1263814718521, 0.1258334814815, 0.1266666666667, 1 },
+									[0.349019607843137] = { 0.4710743801653, 0.467724517906347, 0.468753760228141, 1 },
+									[0.4274509803922] = { 0.206611570247934, 0.206427915518825, 0.206509228806786, 1 },
+									[0.4901960784314] = { 0.975206611570248, 0.971739210284665, 0.973274405161381, 1 },
+									[0.564705882352941] = { 0.428758861340679, 0.545454545454545, 0.59504132231405, 1 },
+									[1] = { 0.824888888888889, 0.910545457962379, 1, 1 }
+								}
+							},
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { -165, 41.65 } },
+				},
+				Transform1_2_2 = Transform {
+					CtrlWShown = false,
+					Inputs = {
+						FlipHoriz = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "FastNoise2_4_2_3",
+							Source = "Output",
+						},
+						EffectMask = Input {
+							SourceOp = "Rectangle1_2_2",
+							Source = "Mask",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { -55, 41.65 } },
+				},
+				Rectangle1_2_2 = RectangleMask {
+					CtrlWShown = false,
+					Inputs = {
+						MaskWidth = Input { Value = 1280, },
+						MaskHeight = Input { Value = 720, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Center = Input { Value = { 0.75, 0.5 }, },
+						Height = Input { Value = 1, },
+					},
+					ViewInfo = OperatorInfo { Pos = { -55, 74.65 } },
+				},
+				Blur3_2_2 = Blur {
+					CtrlWShown = false,
+					Inputs = {
+						XBlurSize = Input { Value = 10, },
+						YBlurSize = Input { Value = 0, },
+						Input = Input {
+							SourceOp = "Transform1_2_2",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 55, 41.65 } },
+				},
+				Ward3_3_1_1 = MtlWard {
+					CtrlWShown = false,
+					Inputs = {
+						["Diffuse.Color.Material"] = Input {
+							SourceOp = "FastNoise2_4_2_2_3_1_1",
+							Source = "Output",
+						},
+						["Specular.Nest"] = Input { Value = 1, },
+						["Specular.Intensity"] = Input { Value = 0.4, },
+						["Specular.SpreadU"] = Input { Value = 0.2, },
+						["Specular.SpreadV"] = Input { Value = 0.2, },
+						MaterialID = Input { Value = 18, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 55, 107.65 } },
+				},
+				FastNoise2_4_2_2_3_1_1 = FastNoise {
+					CtrlWZoom = false,
+					CtrlWShown = false,
+					Inputs = {
+						Width = Input { Value = 1024, },
+						Height = Input { Value = 512, },
+						Discontinuous = Input { Value = 1, },
+						Detail = Input { Value = 2.941919, },
+						XScale = Input { Value = 11.08586, },
+						YScale = Input { Value = 20, },
+						Type = Input { Value = 1, },
+						Start = Input { Value = { 0.5, 0.495081967213115 }, },
+						End = Input { Value = { 0.89386054477784, 0.49109054378973 }, },
+						Gradient = Input {
+							Value = Gradient {
+								Colors = {
+									[0] = { 0.226666666666667, 0.226666666666667, 0.226666666666667, 1 },
+									[0.125490196078431] = { 0.6066666666667, 0.6066666666667, 0.6066666666667, 1 },
+									[0.231372549019608] = { 0.546666666666667, 0.546666666666667, 0.546666666666667, 1 },
+									[0.268691588785047] = { 0.562051282051282, 0.562051282051282, 0.562051282051282, 1 },
+									[0.3200934579439] = { 0.366666666666667, 0.366666666666667, 0.366666666666667, 1 },
+									[0.41358024691358] = { 0.5697435897436, 0.5697435897436, 0.5697435897436, 1 },
+									[0.441358024691358] = { 0.58, 0.58, 0.58, 1 },
+									[0.498039215686275] = { 0.653333333333333, 0.653333333333333, 0.653333333333333, 1 },
+									[0.725490196078431] = { 0.466666666666667, 0.466666666666667, 0.466666666666667, 1 },
+									[1] = { 0.726666666666667, 0.726666666666667, 0.726666666666667, 1 }
+								}
+							},
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { -55, 107.65 } },
+				},
+				spheremap_clearcoat_2_2_2 = SphereMap {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Rotation = Input { Value = 1, },
+						Image = Input {
+							SourceOp = "Blur3_2_2",
+							Source = "Output",
+						},
+						MaterialID = Input { Value = 12, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 165, 41.65 } },
+				},
+				reflect_base_2_2_2 = MtlReflect {
+					CtrlWZoom = false,
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						BackgroundMaterial = Input {
+							SourceOp = "Ward3_3_1_1",
+							Source = "MaterialOutput",
+						},
+						["Reflection.GlancingStrength"] = Input { Value = 0.332, },
+						["Reflection.FaceOnStrength"] = Input { Value = 0.148, },
+						["Reflection.Color.Material"] = Input {
+							SourceOp = "spheremap_clearcoat_2_2_2",
+							Source = "MaterialOutput",
+						},
+						["Refraction.Nest"] = Input { Value = 0, },
+						MaterialID = Input { Value = 3, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 165, 107.65 } },
+				}
+			},
+		}
+	},
+	Views = {
+		{
+			FrameTypeID = "ChildFrame",
+			Mode = 3,
+			LayoutPreset = 0,
+			Left = 0,
+			Top = 27,
+			Width = 1920,
+			Height = 952,
+			Views = ordered() {
+				Main = MultiView {
+					Active = "Flow",
+					ViewList = ordered() {
+						Flow = "FlowView",
+						Console = "ConsoleView",
+						Timeline = "TimelineView",
+						Spline = "SplineEditorView",
+						Info = "InfoView",
+						Chat = "ChatView"
+					},
+					Flow = FlowView {
+						Flags = {
+							Navigator = true,
+							AutoHideNavigator = true,
+							ForceAll = true,
+							ForceSource = true,
+							ForceMask = true,
+							ForceActive = true,
+							AutoSnap = true,
+							RemoveRouters = true
+						},
+						NavigatorSize = { 200, 140 },
+						Direction = "Horizontal",
+						PipeStyle = "Direct",
+						Scale = 1,
+						Offset = { 42, -18 }
+					},
+					Timeline = TimelineView {
+						TreeControlState = {
+						},
+						DisplayMode = "All Tools",
+						ShowCurrentTimeTools = false,
+						Filter = "Show All",
+						ShowSelectedTools = false,
+						ShowAnimatedToolsOnly = false,
+						ShowEditBoxes = false,
+						KeyFrameView = {
+							Position = { Left = 150, Bottom = 350 },
+							ScaleX = 2.14424951267057,
+							OffsetX = -49.317738791423,
+							OffsetY = 0,
+							AutoScaling = "scroll",
+							AutoSnapTo = "frame",
+							AutoSnapToGuidelines = false,
+							GuidelinesGrabEnabled = true,
+							GuidelinesSnapTo = "none"
+						},
+						Spreadsheet = { LeftPos = 150, Visible = false }
+					},
+					Spline = SplineEditorView {
+						LeftPos = 238,
+						ScaleX = 0.2,
+						ScaleY = 0.00338983050847458,
+						OffsetX = -3.8,
+						OffsetY = 0,
+						AutoScaling = "scroll",
+						AutoSnapTo = "frame",
+						AutoSnapToGuidelines = false,
+						GuidelinesSnapTo = "frame",
+						ShowKeyMarkers = false,
+						IndependentHandles = false,
+						ShowNonSplineModifiers = false,
+						GuidelinesGrabEnabled = true,
+						ShowOneToolOnly = false,
+						ShowSelectedTools = false,
+						ShowAllInputs = false,
+						Filter = "Show All"
+					},
+				},
+				Controls = MultiView {
+					Active = "Tools",
+					ViewList = ordered() {
+						Tools = "ControlView",
+						Modifiers = "ModifierView"
+					},
+				},
+				Left = "PreviewContainer",
+				Right = "PreviewContainer",
+				Transport = "TransportView",
+				Time = "TimeView"
+			},
+			Layout = {
+				Columns = 2,
+				RatioX = 1,
+				RatioY = 1,
+				{
+					Rows = 3,
+					RatioX = 0.497637795275591,
+					RatioY = 100,
+					{
+						Columns = 2,
+						RatioX = 1,
+						RatioY = 0.694963079159812,
+						{ ID = "Left", RatioX = 0.63342418608569, RatioY = 100, Pop = true },
+						{ ID = "Right", RatioX = 0.36657581391431, Pop = true },
+						Pop = true
+					},
+					{ ID = "Main", RatioY = 0.182155564907985, Pop = true },
+					{ ID = "Time", SnapY = 56, Flat = true }
+				},
+				{
+					Rows = 2,
+					PixelX = 317,
+					{ ID = "Controls", RatioX = 1, RatioY = 1 },
+					{ ID = "Transport", FixedY = -2 }
+				}
+			}
+		}
+	},
+	Prefs = {
+		Comp = {
+			Paths = {
+			},
+			FlowView = {
+				ForceSource = true,
+				ForceActive = true,
+				ForceMask = true,
+				ForceAll = true,
+			},
+			LastFile = "C:\\Users\\Default.Default-PC\\Documents\\3dsMax\\export\\Gargoyle.FBX",
+			FrameFormat = {
+				GuideRatio = 1.77777777777778,
+			},
+			Views = {
+				View1 = {
+				},
+				Right = {
+					Viewer = {
+						ScaleMode = 0,
+					},
+					View3D = {
+						CameraName = "Perspective",
+						Options = {
+							Lighting = true,
+							Wireframe = true
+						},
+						CamPersp = {
+							Position = {
+								X = -0,
+								Y = -0,
+								Z = -0
+							},
+							Rotation = {
+								X = 30,
+								Y = -5.00895612276508e-006,
+								Z = 0
+							},
+							Scale = 0.0335970185697079
+						},
+						CamFront = {
+							Position = {
+								X = 0,
+								Y = 0,
+								Z = 0
+							},
+							Rotation = {
+								X = 0,
+								Y = 0,
+								Z = 0
+							},
+							Scale = 1
+						},
+						CamTop = {
+							Position = {
+								X = 0,
+								Y = 0,
+								Z = 0
+							},
+							Rotation = {
+								X = 90,
+								Y = 0,
+								Z = 0
+							},
+							Scale = 1
+						},
+						CamRight = {
+							Position = {
+								X = 0,
+								Y = 0,
+								Z = 0
+							},
+							Rotation = {
+								X = 0,
+								Y = -90,
+								Z = 0
+							},
+							Scale = 1
+						},
+						CamLeft = {
+							Position = {
+								X = 0,
+								Y = 0,
+								Z = 0
+							},
+							Rotation = {
+								X = 0,
+								Y = 90,
+								Z = 0
+							},
+							Scale = 1
+						}
+					},
+				},
+				Left = {
+					Viewer = {
+						ScaleMode = 1
+					},
+					QuadView = true,
+					View3D = {
+						CameraName = "Perspective",
+						Options = {
+							Wireframe = true,
+							Lighting = true,
+						},
+						CamPersp = {
+							Position = {
+								X = -296.034454345703,
+								Y = 110.257308959961,
+								Z = -173.127899169922
+							},
+							Rotation = {
+								X = 27.6000003814697,
+								Y = -8.19999122619629,
+								Z = 0
+							},
+							Scale = 0.00948689505457878
+						},
+						CamFront = {
+							Position = {
+								X = 0,
+								Y = 0,
+								Z = 0
+							},
+							Rotation = {
+								X = 0,
+								Y = 0,
+								Z = 0
+							},
+							Scale = 1
+						},
+						CamTop = {
+							Position = {
+								X = 0,
+								Y = 0,
+								Z = 0
+							},
+							Rotation = {
+								X = 90,
+								Y = 0,
+								Z = 0
+							},
+							Scale = 1
+						},
+						CamRight = {
+							Position = {
+								X = 0,
+								Y = 0,
+								Z = 0
+							},
+							Rotation = {
+								X = 0,
+								Y = -90,
+								Z = 0
+							},
+							Scale = 1
+						},
+						CamLeft = {
+							Position = {
+								X = 0,
+								Y = 0,
+								Z = 0
+							},
+							Rotation = {
+								X = 0,
+								Y = 90,
+								Z = 0
+							},
+							Scale = 1
+						},
+					},
+					View1 = {
+						View3D = {
+							CameraName = "Top",
+							Options = {
+								Wireframe = true,
+								Lighting = true,
+								Shadows = false
+							},
+							SortMethod = "QuickBSP",
+							CamPersp = {
+								Position = {
+									X = 0,
+									Y = 0,
+									Z = 0
+								},
+								Rotation = {
+									X = 30,
+									Y = 0,
+									Z = 0
+								},
+								Scale = 1
+							},
+							CamFront = {
+								Position = {
+									X = 0,
+									Y = 0,
+									Z = 0
+								},
+								Rotation = {
+									X = 0,
+									Y = 0,
+									Z = 0
+								},
+								Scale = 1
+							},
+							CamTop = {
+								Position = {
+									X = -279.490875244141,
+									Y = -1.05680464912439e-006,
+									Z = -185.642837524414
+								},
+								Rotation = {
+									X = 90,
+									Y = 0,
+									Z = 0
+								},
+								Scale = 0.0145642487332225
+							},
+							CamRight = {
+								Position = {
+									X = 0,
+									Y = 0,
+									Z = 0
+								},
+								Rotation = {
+									X = 0,
+									Y = -90,
+									Z = 0
+								},
+								Scale = 1
+							},
+							CamLeft = {
+								Position = {
+									X = 0,
+									Y = 0,
+									Z = 0
+								},
+								Rotation = {
+									X = 0,
+									Y = 90,
+									Z = 0
+								},
+								Scale = 1
+							}
+						},
+						Viewer = {
+							ScaleMode = 1
+						}
+					},
+					View2 = {
+						View3D = {
+							CameraName = "Front",
+							Options = {
+								Wireframe = true,
+								Lighting = true,
+								Shadows = false
+							},
+							SortMethod = "QuickBSP",
+							CamPersp = {
+								Position = {
+									X = 0,
+									Y = 0,
+									Z = 0
+								},
+								Rotation = {
+									X = 30,
+									Y = 0,
+									Z = 0
+								},
+								Scale = 1
+							},
+							CamFront = {
+								Position = {
+									X = -273.918426513672,
+									Y = 123.519325256348,
+									Z = 0
+								},
+								Rotation = {
+									X = 0,
+									Y = 0,
+									Z = 0
+								},
+								Scale = 0.0110760992392898
+							},
+							CamTop = {
+								Position = {
+									X = 0,
+									Y = 0,
+									Z = 0
+								},
+								Rotation = {
+									X = 90,
+									Y = 0,
+									Z = 0
+								},
+								Scale = 1
+							},
+							CamRight = {
+								Position = {
+									X = 0,
+									Y = 0,
+									Z = 0
+								},
+								Rotation = {
+									X = 0,
+									Y = -90,
+									Z = 0
+								},
+								Scale = 1
+							},
+							CamLeft = {
+								Position = {
+									X = 0,
+									Y = 0,
+									Z = 0
+								},
+								Rotation = {
+									X = 0,
+									Y = 90,
+									Z = 0
+								},
+								Scale = 1
+							}
+						},
+						Viewer = {
+							ScaleMode = 1
+						}
+					},
+					View3 = {
+						View3D = {
+							CameraName = "Right",
+							Options = {
+								Wireframe = true,
+								Lighting = true,
+								Shadows = false
+							},
+							SortMethod = "QuickBSP",
+							CamPersp = {
+								Position = {
+									X = 0,
+									Y = 0,
+									Z = 0
+								},
+								Rotation = {
+									X = 30,
+									Y = 0,
+									Z = 0
+								},
+								Scale = 1
+							},
+							CamFront = {
+								Position = {
+									X = 0,
+									Y = 0,
+									Z = 0
+								},
+								Rotation = {
+									X = 0,
+									Y = 0,
+									Z = 0
+								},
+								Scale = 1
+							},
+							CamTop = {
+								Position = {
+									X = 0,
+									Y = 0,
+									Z = 0
+								},
+								Rotation = {
+									X = 90,
+									Y = 0,
+									Z = 0
+								},
+								Scale = 1
+							},
+							CamRight = {
+								Position = {
+									X = -2.05317405743699e-006,
+									Y = 137.699310302734,
+									Z = -208.437164306641
+								},
+								Rotation = {
+									X = 0,
+									Y = -90,
+									Z = 0
+								},
+								Scale = 0.00934618804603815
+							},
+							CamLeft = {
+								Position = {
+									X = 0,
+									Y = 0,
+									Z = 0
+								},
+								Rotation = {
+									X = 0,
+									Y = 90,
+									Z = 0
+								},
+								Scale = 1
+							}
+						},
+						Viewer = {
+							ScaleMode = 1
+						}
+					}
+				},
+			},
+			QuickTime = {
+			},
+		}
+	}
+}
+
+ 

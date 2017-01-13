@@ -1,0 +1,349 @@
+Composition {
+	CurrentTime = 78,
+	RenderRange = { 0, 120 },
+	GlobalRange = { 0, 120 },
+	CurrentID = 38,
+	PlaybackUpdateMode = 0,
+	Version = "Fusion 8.0 build 18",
+	SavedOutputs = 2,
+	HeldTools = 0,
+	DisabledTools = 0,
+	LockedTools = 0,
+	AudioOffset = 0,
+	Resumable = true,
+	OutputClips = {
+	},
+	Tools = {
+		Loader1 = Loader {
+			Clips = {
+				Clip {
+					ID = "Clip1",
+					Filename = "E:\\VFX_Fundamentals\\Niki.png",
+					FormatID = "PNGFormat",
+					StartFrame = -1,
+					LengthSetManually = true,
+					TrimIn = 0,
+					TrimOut = 0,
+					ExtendFirst = 0,
+					ExtendLast = 0,
+					Loop = 0,
+					AspectMode = 0,
+					Depth = 0,
+					TimeCode = 0,
+					GlobalStart = 0,
+					GlobalEnd = 0
+				}
+			},
+			Inputs = {
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 385, 16.5 } },
+		},
+		Loader2 = Loader {
+			Clips = {
+				Clip {
+					ID = "Clip1",
+					Filename = "E:\\VFX_Fundamentals\\jellyfish1.png",
+					FormatID = "PNGFormat",
+					StartFrame = 1,
+					Length = 4,
+					LengthSetManually = true,
+					TrimIn = 0,
+					TrimOut = 3,
+					ExtendFirst = 0,
+					ExtendLast = 0,
+					Loop = 0,
+					AspectMode = 0,
+					Depth = 0,
+					TimeCode = 0,
+					GlobalStart = 0,
+					GlobalEnd = 3
+				}
+			},
+			Inputs = {
+				PostMultiplyByAlpha = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1375, 16.5 } },
+		},
+		Drip1 = Drip {
+			CtrlWZoom = false,
+			Inputs = {
+				Amplitude = Input {
+					SourceOp = "Drip1Amplitude",
+					Source = "Value",
+				},
+				Frequency = Input { Value = 12, },
+				Input = Input {
+					SourceOp = "BlurNiki",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 715, 16.5 } },
+		},
+		Drip1Amplitude = BezierSpline {
+			SplineColor = { Red = 180, Green = 180, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[1] = { 0, RH = { 11.3333333333333, 0.0533333333333333 }, Flags = { Linear = true } },
+				[32] = { 0.16, LH = { 21.6666666666667, 0.106666666666667 }, RH = { 41.3333333333333, 0.106666666666667 }, Flags = { Linear = true } },
+				[60] = { 0, LH = { 50.6666666666667, 0.0533333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		Merge1 = Merge {
+			CtrlWZoom = false,
+			Inputs = {
+				Background = Input {
+					SourceOp = "Drip1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "Loader2",
+					Source = "Output",
+				},
+				Center = Input {
+					SourceOp = "Path1",
+					Source = "Position",
+				},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1045, 16.5 } },
+		},
+		Path1Displacement = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 30, 0.333333333333333 }, Flags = { Linear = true, LockedY = true } },
+				[90] = { 1, LH = { 60, 0.666666666666667 }, Flags = { Linear = true, LockedY = true } }
+			}
+		},
+		Path1 = PolyPath {
+			DrawMode = "Done",
+			Inputs = {
+				Displacement = Input {
+					SourceOp = "Path1Displacement",
+					Source = "Value",
+				},
+				PolyLine = Input {
+					Value = Polyline {
+						Points = {
+							{ Linear = true, LockY = true, X = 0.291871921182221, Y = -0.505199306759099, RX = -0.0431212007705659, RY = 0.166954795094471 },
+							{ X = 0.339848220348358, Y = 0.016462305560708, LX = 0.15279708816295, LY = -0.0752206239430305, RX = -0.200012302429448, RY = 0.0954343384136375 },
+							{ LockY = true, X = 0.40147783251224, Y = 0.512131715771231, LX = -0.0205432040546263, LY = -0.165223136736841 }
+						}
+					},
+				},
+			},
+		},
+		BlurNikiBlend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 1, RH = { 10, 0.666666666666667 }, Flags = { Linear = true } },
+				[30] = { 0, LH = { 20, 0.333333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		BlurNiki = Blur {
+			NameSet = true,
+			EnabledRegion = TimeRegion { { Start = -5, End = 995.9999, FrameLength = 1 } },
+			Inputs = {
+				Blend = Input {
+					SourceOp = "BlurNikiBlend",
+					Source = "Value",
+				},
+				XBlurSize = Input { Value = 100, },
+				Input = Input {
+					SourceOp = "Loader1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 550, 16.5 } },
+		}
+	},
+	Views = {
+		{
+			FrameTypeID = "ChildFrame",
+			Mode = 3,
+			LayoutPreset = 0,
+			Left = 0,
+			Top = 27,
+			Width = 1920,
+			Height = 952,
+			Views = ordered() {
+				Main = MultiView {
+					Active = "Flow",
+					ViewList = ordered() {
+						Flow = "FlowView",
+						Console = "ConsoleView",
+						Timeline = "TimelineView",
+						Spline = "SplineEditorView",
+						Info = "InfoView",
+						Chat = "ChatView"
+					},
+					Flow = FlowView {
+						Flags = {
+							AutoHideNavigator = true,
+							ForceAll = true,
+							ForceSource = true,
+							ForceMask = true,
+							ForceActive = true,
+							GridSnap = true,
+							AutoSnap = true,
+							RemoveRouters = true
+						},
+						NavigatorSize = { 200, 140 },
+						Direction = "Horizontal",
+						PipeStyle = "Direct",
+						Scale = 1,
+						Offset = { -194, 68 }
+					},
+					Timeline = TimelineView {
+						TreeControlState = {
+						},
+						DisplayMode = "All Tools",
+						ShowCurrentTimeTools = false,
+						Filter = "Show All",
+						ShowSelectedTools = false,
+						ShowAnimatedToolsOnly = false,
+						ShowEditBoxes = false,
+						KeyFrameView = {
+							Position = { Left = 150, Bottom = 247 },
+							ScaleX = 0.257309941520468,
+							OffsetX = -6.17543859649123,
+							OffsetY = 0,
+							AutoScaling = "scroll",
+							AutoSnapTo = "frame",
+							AutoSnapToGuidelines = false,
+							GuidelinesGrabEnabled = true,
+							GuidelinesSnapTo = "none"
+						},
+						Spreadsheet = { LeftPos = 150, Visible = false }
+					},
+					Spline = SplineEditorView {
+						LeftPos = 256,
+						ScaleX = 0.2,
+						ScaleY = 0.00338983050847458,
+						OffsetX = -6,
+						OffsetY = 0.372881355932203,
+						AutoScaling = "scroll",
+						AutoSnapTo = "frame",
+						AutoSnapToGuidelines = false,
+						GuidelinesSnapTo = "frame",
+						ShowKeyMarkers = false,
+						IndependentHandles = false,
+						ShowNonSplineModifiers = false,
+						GuidelinesGrabEnabled = true,
+						ShowOneToolOnly = false,
+						ShowSelectedTools = false,
+						ShowAllInputs = false,
+						Filter = "Show All"
+					},
+				},
+				Controls = MultiView {
+					Active = "Tools",
+					ViewList = ordered() {
+						Tools = "ControlView",
+						Modifiers = "ModifierView"
+					},
+				},
+				Left = "PreviewContainer",
+				Right = "PreviewContainer",
+				Transport = "TransportView",
+				Time = "TimeView"
+			},
+			Layout = {
+				Columns = 2,
+				RatioX = 1,
+				RatioY = 1,
+				{
+					Rows = 3,
+					RatioX = 0.833420365535248,
+					RatioY = 0.0105263157894737,
+					{
+						Columns = 2,
+						RatioX = 1,
+						RatioY = 0.663135593220339,
+						{ ID = "Left", RatioX = 0.501569365976146, RatioY = 0.0111821086261981, Pop = true },
+						{ ID = "Right", RatioX = 0.498430634023854, Pop = true },
+						Pop = true
+					},
+					{ ID = "Main", RatioY = 0.275423728813559, Pop = true },
+					{ ID = "Time", SnapY = 56, Flat = true }
+				},
+				{
+					Rows = 2,
+					PixelX = 317,
+					{ ID = "Controls", RatioX = 1, RatioY = 1 },
+					{ ID = "Transport", FixedY = -2 }
+				}
+			}
+		}
+	},
+	Prefs = {
+		Comp = {
+			Views = {
+				Right = {
+					Viewer = {
+					},
+				},
+				Left = {
+				},
+				View1 = {
+				},
+			},
+			FrameFormat = {
+				GuideRatio = 1.77777777777778,
+			},
+			LastFile = "E:\\VFX_Fundamentals\\CH8_Unsharp_Mask",
+			Unsorted = {
+				GlobalEnd = 120,
+				RenderSettings = {
+					Configs = {
+						Final = {
+							StepRender = false,
+							PriorityClasses = "local",
+							SizeType = 1,
+							MotionBlur = true,
+							CustomAspect = false,
+							CustomHeight = 160,
+							ShowSlaves = false,
+							CustomWidth = 200,
+							StepSize = 2,
+							UpdateMode = "Some",
+							UseNetwork = false,
+							Quality = true
+						},
+						Preview = {
+							StepRender = false,
+							PriorityClasses = "local",
+							SizeType = 1,
+							MotionBlur = true,
+							CustomAspect = true,
+							CustomHeight = 160,
+							ShowSlaves = false,
+							CustomWidth = 200,
+							StepSize = 5,
+							UpdateMode = "Some",
+							UseNetwork = false,
+							Quality = false
+						}
+					},
+					PreviewConfig = "Preview",
+					CurrentConfig = "Final"
+				}
+			},
+			Paths = {
+			},
+			FlowView = {
+				ForceActive = true,
+				ForceSource = true,
+				ForceMask = true,
+				ForceAll = true,
+			},
+			QuickTime = {
+			}
+		}
+	}
+}
+
+ 

@@ -1,0 +1,425 @@
+Composition {
+	CurrentTime = 35,
+	RenderRange = { 0, 120 },
+	GlobalRange = { 0, 120 },
+	CurrentID = 60,
+	PlaybackUpdateMode = 0,
+	Version = "Fusion 8.0 build 18",
+	SavedOutputs = 2,
+	HeldTools = 0,
+	DisabledTools = 0,
+	LockedTools = 0,
+	AudioOffset = 0,
+	Resumable = true,
+	OutputClips = {
+	},
+	Tools = {
+		Loader2 = Loader {
+			Clips = {
+				Clip {
+					ID = "Clip1",
+					Filename = "E:\\VFX_Fundamentals\\jellyfish1.png",
+					FormatID = "PNGFormat",
+					StartFrame = 1,
+					Length = 4,
+					LengthSetManually = true,
+					TrimIn = 0,
+					TrimOut = 3,
+					ExtendFirst = 0,
+					ExtendLast = 0,
+					Loop = 0,
+					AspectMode = 0,
+					Depth = 0,
+					TimeCode = 0,
+					GlobalStart = 0,
+					GlobalEnd = 3
+				}
+			},
+			Inputs = {
+				PostMultiplyByAlpha = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1705, -169.5 } },
+		},
+		Loader1 = Loader {
+			Clips = {
+				Clip {
+					ID = "Clip1",
+					Filename = "E:\\VFX_Fundamentals\\Niki.png",
+					FormatID = "PNGFormat",
+					StartFrame = -1,
+					LengthSetManually = true,
+					TrimIn = 0,
+					TrimOut = 0,
+					ExtendFirst = 0,
+					ExtendLast = 0,
+					Loop = 0,
+					AspectMode = 0,
+					Depth = 0,
+					TimeCode = 0,
+					GlobalStart = 0,
+					GlobalEnd = 0
+				}
+			},
+			Inputs = {
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 334, -208.5 } },
+		},
+		Polygon1Polyline = BezierSpline {
+			SplineColor = { Red = 173, Green = 255, Blue = 47 },
+			NameSet = true,
+			KeyFrames = {
+				[78] = { 0, Flags = { Linear = true, LockedY = true }, Value = Polyline {
+						Closed = true,
+						Points = {
+							{ X = 0.46551725268364, Y = 0.331022522994922, LX = -0.0550082152700189, LY = 0.00924321935054258, RX = 0.146106968486687, RY = -0.0512593301973013 },
+							{ X = 0.631773412227631, Y = 0.209705367684364, LX = -0.0419098700080824, LY = 0.0388319118059501, RX = -0.00246305859147622, RY = -0.0231080283962323 },
+							{ Linear = true, X = 0.624384224414825, Y = 0.140381276607513, LX = 0.00246305859147622, LY = 0.0231080283962323, RX = 0.0730706115661583, RY = -0.0947429212030822 },
+							{ X = 0.695812821388245, Y = -0.0242634322494268, LX = -0.023809527822316, LY = 0.0548815693833248, RX = -0.00287356772054785, RY = -0.0404390523351131 },
+							{ X = 0.668719232082367, Y = -0.103986136615276, LX = 0.00903120318852816, LY = 0.0265742343108496, RX = -0.0094417144708054, RY = 0.00462160648585467 },
+							{ Linear = true, X = 0.64039409160614, Y = -0.0901213139295578, LX = 0.0094417144708054, LY = -0.00462160648585467, RX = 0.0209359596124032, RY = -0.0641247844382699 },
+							{ Linear = true, X = 0.703201949596405, Y = -0.282495677471161, LX = -0.0209359596124032, LY = 0.0641247844382699, RX = -0.000410501881587373, RY = -0.0352397418109236 },
+							{ X = 0.701970470656315, Y = -0.388214908191608, LX = -0.00625920294792668, LY = 0.0527617292383134, RX = 0.0114942349628079, RY = -0.0265742367674752 },
+							{ X = 0.736453175544739, Y = -0.467937618494034, LX = -0.015188816243596, LY = 0.0439052592978045, RX = -0.0045155905346174, RY = -0.0872328100109431 },
+							{ X = 0.697044312953949, Y = -0.65684574842453, LX = 0.0131362801897898, LY = 0.0629693784684821, RX = -0.1096058991938, RY = -0.000577705950491817 },
+							{ Linear = true, X = 0.36822661537255, Y = -0.658578866276005, LX = 0.1096058991938, LY = 0.000577705950491817, RX = -0.048253435628498, RY = 0.0588818113936763 },
+							{ X = 0.334975383551837, Y = -0.537261702468945, LX = -0.0139283280320831, LY = -0.0337573556164066, RX = 0.0223581290541461, RY = 0.0407182914787371 },
+							{ X = 0.389162556438023, Y = -0.4159445294681, LX = -0.0172509119957592, LY = -0.0342612087906686, RX = -0.0127185980270675, RY = 0.0428614220161761 },
+							{ X = 0.35098522901535, Y = -0.303292900323868, LX = 0.0109901009174267, LY = -0.0431046518446894, RX = 0.00566807401102654, RY = 0.0150668452881165 },
+							{ X = 0.366587387810787, Y = -0.244670391780045, LX = -0.00323244706701452, LY = -0.0219220918227858, RX = 0.00129968538654497, RY = 0.00881449821775926 },
+							{ X = 0.365763545036316, Y = -0.218370891061565, LX = 8.47785914636696e-005, LY = -0.00846973722921574, RX = -0.0225779986733873, RY = 0.0155979214953867 },
+							{ X = 0.334975361824036, Y = -0.0935875251889229, LX = 0.00779967355023464, LY = -0.0641247845803087, RX = 0.0049261109190817, RY = 0.0381282507417727 },
+							{ X = 0.305418729782104, Y = 0.0311958398669958, LX = 0.00615763292328279, LY = -0.0450606597539043, RX = 0.00287355969496354, RY = 0.047371461812099 },
+							{ X = 0.336206883192062, Y = 0.126516461372375, LX = -0.0102627222565399, LY = -0.0317735415348027, RX = -0.059904332923876, RY = 0.0162790306846612 },
+							{ X = 0.22783251106739, Y = 0.0779895999015306, LX = 0.0363557313230675, LY = 0.0289810587979089, RX = -0.000248733095856987, RY = 0.025373274045201 },
+							{ X = 0.23768473589068, Y = 0.149046793580055, LX = -0.00603023220556186, LY = -0.0272771212284801, RX = 0.0482233936629417, RY = 0.0564901578083156 },
+							{ X = 0.357142842755529, Y = 0.239168106812332, LX = -0.0699582525856391, LY = -0.0321848167471264, RX = 0.00427945242852803, RY = 0.0319185975372688 },
+							{ X = 0.385467976331711, Y = 0.332755647251056, LX = -0.0119824578008344, LY = -0.0228850326003641, RX = 0.0266830921173096, RY = 0.00288849642068782 }
+						}
+					} }
+			}
+		},
+		Drip1 = Drip {
+			Inputs = {
+				Amplitude = Input {
+					SourceOp = "Drip1Amplitude",
+					Source = "Value",
+				},
+				Frequency = Input { Value = 12, },
+				Input = Input {
+					SourceOp = "BlurNiki",
+					Source = "Output",
+				},
+				EffectMask = Input {
+					SourceOp = "Polygon1",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 1040, -98.5 } },
+		},
+		Path1Displacement = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 30, 0.333333333333333 }, Flags = { Linear = true, LockedY = true } },
+				[90] = { 1, LH = { 60, 0.666666666666667 }, Flags = { Linear = true, LockedY = true } }
+			}
+		},
+		Drip1Amplitude = BezierSpline {
+			SplineColor = { Red = 180, Green = 180, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[1] = { 0, RH = { 11.3333333333333, 0.0533333333333333 }, Flags = { Linear = true } },
+				[32] = { 0.16, LH = { 21.6666666666667, 0.106666666666667 }, RH = { 41.3333333333333, 0.106666666666667 }, Flags = { Linear = true } },
+				[60] = { 0, LH = { 50.6666666666667, 0.0533333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		Merge1 = Merge {
+			CtrlWZoom = false,
+			Inputs = {
+				Background = Input {
+					SourceOp = "Drip1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "Loader2",
+					Source = "Output",
+				},
+				Center = Input {
+					SourceOp = "Path1",
+					Source = "Position",
+				},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1378, -218.5 } },
+		},
+		Polygon1 = PolylineMask {
+			DrawMode = "InsertAndModify",
+			DrawMode2 = "InsertAndModify",
+			Inputs = {
+				MaskWidth = Input { Value = 1920, },
+				MaskHeight = Input { Value = 1080, },
+				PixelAspect = Input { Value = { 1, 1 }, },
+				ClippingMode = Input { Value = FuID { "None" }, },
+				Center = Input { Value = { 0.0369458128078818, 0.658578856152513 }, },
+				Polyline = Input {
+					SourceOp = "Polygon1Polyline",
+					Source = "Value",
+				},
+				Polyline2 = Input {
+					Value = Polyline {
+					},
+					Disabled = true,
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 956, -271.5 } },
+		},
+		BlurNikiBlend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 1, RH = { 10, 0.666666666666667 }, Flags = { Linear = true } },
+				[30] = { 0, LH = { 20, 0.333333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		Path1 = PolyPath {
+			DrawMode = "Freehand",
+			Inputs = {
+				Displacement = Input {
+					SourceOp = "Path1Displacement",
+					Source = "Value",
+				},
+				PolyLine = Input {
+					Value = Polyline {
+						Points = {
+							{ Linear = true, LockY = true, X = 0.291871921182221, Y = -0.505199306759099, RX = -0.0431212007705659, RY = 0.166954795094471 },
+							{ X = 0.339848220348358, Y = 0.016462305560708, LX = 0.15279708816295, LY = -0.0752206239430305, RX = -0.200012302429448, RY = 0.0954343384136375 },
+							{ LockY = true, X = 0.40147783251224, Y = 0.512131715771231, LX = -0.0205432040546263, LY = -0.165223136736841 }
+						}
+					},
+				},
+			},
+		},
+		BlurNiki = Blur {
+			NameSet = true,
+			EnabledRegion = TimeRegion { { Start = -5, End = 995.9999, FrameLength = 1 } },
+			Inputs = {
+				Blend = Input {
+					SourceOp = "BlurNikiBlend",
+					Source = "Value",
+				},
+				XBlurSize = Input { Value = 100, },
+				Input = Input {
+					SourceOp = "Loader1",
+					Source = "Output",
+				},
+				EffectMask = Input {
+					SourceOp = "Polygon1",
+					Source = "Mask",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 875, -98.5 } },
+		}
+	},
+	Views = {
+		{
+			FrameTypeID = "ChildFrame",
+			Mode = 3,
+			LayoutPreset = 0,
+			Left = 0,
+			Top = 27,
+			Width = 1920,
+			Height = 952,
+			Views = ordered() {
+				Main = MultiView {
+					Active = "Flow",
+					ViewList = ordered() {
+						Flow = "FlowView",
+						Console = "ConsoleView",
+						Timeline = "TimelineView",
+						Spline = "SplineEditorView",
+						Info = "InfoView",
+						Chat = "ChatView"
+					},
+					Flow = FlowView {
+						Flags = {
+							AutoHideNavigator = true,
+							ForceAll = true,
+							ForceSource = true,
+							ForceMask = true,
+							ForceActive = true,
+							RemoveRouters = true
+						},
+						NavigatorSize = { 200, 140 },
+						Direction = "Horizontal",
+						PipeStyle = "Direct",
+						Scale = 1,
+						Offset = { -270, 294 }
+					},
+					Timeline = TimelineView {
+						TreeControlState = {
+						},
+						DisplayMode = "All Tools",
+						ShowCurrentTimeTools = false,
+						Filter = "Show All",
+						ShowSelectedTools = false,
+						ShowAnimatedToolsOnly = false,
+						ShowEditBoxes = false,
+						KeyFrameView = {
+							Position = { Left = 150, Bottom = 215 },
+							ScaleX = 0.257309941520468,
+							OffsetX = -6.17543859649123,
+							OffsetY = 0,
+							AutoScaling = "scroll",
+							AutoSnapTo = "frame",
+							AutoSnapToGuidelines = false,
+							GuidelinesGrabEnabled = true,
+							GuidelinesSnapTo = "none"
+						},
+						Spreadsheet = { LeftPos = 150, Visible = false }
+					},
+					Spline = SplineEditorView {
+						LeftPos = 256,
+						ScaleX = 0.2,
+						ScaleY = 0.00338983050847458,
+						OffsetX = -3.8,
+						OffsetY = 0,
+						AutoScaling = "scroll",
+						AutoSnapTo = "frame",
+						AutoSnapToGuidelines = false,
+						GuidelinesSnapTo = "frame",
+						ShowKeyMarkers = false,
+						IndependentHandles = false,
+						ShowNonSplineModifiers = false,
+						GuidelinesGrabEnabled = true,
+						ShowOneToolOnly = false,
+						ShowSelectedTools = false,
+						ShowAllInputs = false,
+						Filter = "Show All"
+					},
+				},
+				Controls = MultiView {
+					Active = "Tools",
+					ViewList = ordered() {
+						Tools = "ControlView",
+						Modifiers = "ModifierView"
+					},
+				},
+				Left = "PreviewContainer",
+				Right = "PreviewContainer",
+				Transport = "TransportView",
+				Time = "TimeView"
+			},
+			Layout = {
+				Columns = 2,
+				RatioX = 1,
+				RatioY = 1,
+				{
+					Rows = 3,
+					RatioX = 0.833420365535248,
+					RatioY = 95,
+					{
+						Columns = 2,
+						RatioX = 1,
+						RatioY = 0.644067796610169,
+						{ ID = "Left", RatioX = 0.501569365976146, RatioY = 89.4281345565749, Pop = true },
+						{ ID = "Right", RatioX = 0.498430634023854, Pop = true },
+						Pop = true
+					},
+					{ ID = "Main", RatioY = 0.294491525423729, Pop = true },
+					{ ID = "Time", SnapY = 56, Flat = true }
+				},
+				{
+					Rows = 2,
+					PixelX = 317,
+					{ ID = "Controls", RatioX = 1, RatioY = 1 },
+					{ ID = "Transport", FixedY = -2 }
+				}
+			}
+		}
+	},
+	Prefs = {
+		Comp = {
+			Views = {
+				Right = {
+					Viewer = {
+					},
+				},
+				Left = {
+					Viewer = {
+						ShowControls = true,
+						CheckerUnderlay = true,
+					},
+					SubView = {
+						ID = "GLImageInfo",
+						Navigator = false,
+						Enabled = false,
+						Magnifier = false
+					},
+				},
+				View1 = {
+				},
+			},
+			FrameFormat = {
+				GuideRatio = 1.77777777777778,
+			},
+			LastFile = "E:\\VFX_Fundamentals\\CH8_Unsharp_Mask",
+			PolyKeyListDlg = {
+				Window = {
+					Left = 909,
+					Top = 250
+				}
+			},
+			Unsorted = {
+				GlobalEnd = 120,
+				RenderSettings = {
+					Configs = {
+						Preview = {
+							StepRender = false,
+							PriorityClasses = "local",
+							CustomAspect = true,
+							StepSize = 5,
+							SizeType = 1,
+							CustomHeight = 160,
+							ShowSlaves = false,
+							CustomWidth = 200,
+							MotionBlur = true,
+							UpdateMode = "Some",
+							UseNetwork = false,
+							Quality = false
+						},
+						Final = {
+							StepRender = false,
+							PriorityClasses = "local",
+							CustomAspect = false,
+							StepSize = 2,
+							SizeType = 1,
+							CustomHeight = 160,
+							ShowSlaves = false,
+							CustomWidth = 200,
+							MotionBlur = true,
+							UpdateMode = "Some",
+							UseNetwork = false,
+							Quality = true
+						}
+					},
+					PreviewConfig = "Preview",
+					CurrentConfig = "Final"
+				}
+			},
+			Paths = {
+			},
+			FlowView = {
+				ForceActive = true,
+				ForceSource = true,
+				ForceMask = true,
+				ForceAll = true,
+			},
+			QuickTime = {
+			}
+		}
+	}
+}
+
+ 
